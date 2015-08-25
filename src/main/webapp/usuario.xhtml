@@ -14,7 +14,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div>#{usuarioController.saludo}</div>
-        <h:form>
+        <h:form rendered="#{usuarioController.usuario.correo.length()>0}">
             Nombre usuario:#{usuarioController.usuario.usuario}<br/>
             Password :#{usuarioController.usuario.password}<br/>
             Correo:#{usuarioController.usuario.correo}<br/>

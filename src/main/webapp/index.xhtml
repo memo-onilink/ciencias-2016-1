@@ -8,24 +8,53 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
         <title>TODO supply a title</title>   
     </h:head>
     <h:body>
+
         #{usuarioController.saludo}
-        <h:form>
+        <h:form id="formulario">
+            <p:growl id="growl" showDetail="true" sticky="true" />
             Nombre usuario:
-            <h:inputText value="#{usuarioController.usuario.usuario}"/><br/>
+            <p:inputText id="usuario" required="true" value="#{usuarioController.usuario.usuario}"/><br/>
+            <p:message for="usuario"/>
             Password 
             <h:inputSecret value="#{usuarioController.usuario.password}" /><br/>
             Correo:
-            <h:inputText value="#{usuarioController.usuario.correo}" /><br/>
-            <h:commandButton action="usuario" value="Boton" />
+            <p:inputText validatorMessage="Formato no coincide" id="correo"  value="#{usuarioController.usuario.correo}" >
+                <f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+            </p:inputText><br/>
+            <p:message for="correo"/>
+            <p:commandButton value="Boton" update="@form :usuario"
+                             actionListener="#{usuarioController.guardausuario()}" />
+    
+            
+          
+            <br/>
+        </h:form>
+        <h:form id="usuario">
+              <p:dataTable value="#{usuarioController.usuarios}" var="_usuario">
+                <p:column>
+                    #{_usuario.usuario}
+                </p:column>
+                <p:column>
+                    #{_usuario.correo}
+                </p:column>
+                <p:column>
+                    <p:commandButton value="quitar" update="@form"
+                        actionListener="#{usuarioController.usuarios.remove(_usuario)}"/>
+                </p:column>
+                  <p:column>
+                      <p:commandButton actionListener="#{usuarioController.setUsuario(_usuario)}" value="ver" update=":formulario"/>
+                  </p:column>
+            </p:dataTable>
         </h:form>
         
-        
-        
-        
+        <h:form>
+            <h:commandLink action="usuario" value="ir a usuario"/>
+        </h:form>
     </h:body>
 </html>

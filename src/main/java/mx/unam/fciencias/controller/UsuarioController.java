@@ -5,6 +5,8 @@
  */
 package mx.unam.fciencias.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import mx.unam.fciencias.model.UsuarioModel;
@@ -21,10 +23,18 @@ import mx.unam.fciencias.model.UsuarioModel;
 public class UsuarioController {
     
     private UsuarioModel usuario=new UsuarioModel();
+    private List<UsuarioModel> usuarios=new ArrayList<>();
     
     private String cadena="Hola Mundo... <String>";
     
-
+    
+    public void guardausuario(){
+        usuarios.add(usuario);
+        usuario=new UsuarioModel();
+        //this.usuario.setUsuario(this.usuario.getUsuario()+"***");
+       //throw new RuntimeException("Error !!!");
+    }
+    
     public UsuarioModel getUsuario() {
         return usuario;
     }
@@ -35,6 +45,14 @@ public class UsuarioController {
 
     public String getSaludo() {
         return cadena;
+    }
+
+    public List<UsuarioModel> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<UsuarioModel> usuarios) {
+        this.usuarios = usuarios;
     }
     
     
