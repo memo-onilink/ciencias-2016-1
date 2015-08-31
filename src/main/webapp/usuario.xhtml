@@ -8,16 +8,19 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
-      >
+          
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>TODO supply a title</title>   
     </h:head>
     <h:body>
         <div>#{usuarioController.saludo}</div>
-        <h:form rendered="#{usuarioController.usuario.correo.length()>0}">
+        <h:form >
             Nombre usuario:#{usuarioController.usuario.usuario}<br/>
             Password :#{usuarioController.usuario.password}<br/>
             Correo:#{usuarioController.usuario.correo}<br/>
+        
+            <p:commandLink value="ir a index" action="index" />
         </h:form>
         
         
