@@ -17,16 +17,17 @@ and open the template in the editor.
         <h:form id="formulario">
             <p:growl id="growl" showDetail="true" sticky="true" />
             Nombre usuario:
-            <p:inputText id="usuario" required="true" value="#{usuarioController.usuario.usuario}"/><br/>
+            <p:inputMask id="usuario" value="#{usuarioController.usuario.usuario}" mask="99999999-9"/>
+            <bt/>
             <p:message for="usuario"/>
             Password 
             <h:inputSecret value="#{usuarioController.usuario.password}" /><br/>
             Correo:
-            <p:inputText validatorMessage="Formato no coincide" id="correo"  value="#{usuarioController.usuario.correo}" >
-                <f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
-            </p:inputText><br/>
+            <p:editor validatorMessage="Formato no coincide" id="correo"  value="#{usuarioController.usuario.correo}" >
+                
+            </p:editor><br/>
             <p:message for="correo"/>
-            <p:commandButton value="Boton" update="@form :usuario"
+            <p:commandButton value="Boton" update="@form :usuario :select"
                              actionListener="#{usuarioController.guardausuario()}" />
     
             
@@ -51,10 +52,26 @@ and open the template in the editor.
             </p:dataTable>
         </h:form>
         
+        
         <h:form>
             <h:commandLink action="usuario" value="ir a usuario"/>
             <h:commandLink action="index" value="ir a index"/>
         </h:form>
+         
+         <h:form id="select">
+             <p:selectOneMenu value="#{usuarioController.usuario}" 
+                              converter="usuarioConverter"  >
+                 <f:selectItems value="#{usuarioController.usuarios}" 
+                                var="_usuario"
+                                itemLabel="#{_usuario.usuario}" 
+                                itemValue="#{_usuario}" >
+                   
+                 </f:selectItems>
+             </p:selectOneMenu>
+             <p:calendar id="mask" value="#{usuarioController.date}" pattern="dd-MM-yyyy" mask="true" />
+             <p:commandButton update="@form" ajax="false" value="enviar" action="usuario" />
+         </h:form>
+         
      </ui:define>
            
        

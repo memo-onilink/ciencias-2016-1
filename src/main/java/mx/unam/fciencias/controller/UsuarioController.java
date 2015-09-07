@@ -6,13 +6,13 @@
 package mx.unam.fciencias.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import mx.unam.fciencias.model.UsuarioModel;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 
 
@@ -21,13 +21,14 @@ import mx.unam.fciencias.model.UsuarioModel;
  * @author Memo
  */
 
-@ManagedBean
-@SessionScoped
+@Controller("usuarioController")
+@Scope("session")
 public class UsuarioController {
     
     private UsuarioModel usuario;
     private List<UsuarioModel> usuarios;
     private String cadena;
+    private Date date;
     
     @PostConstruct
     public void init(){
@@ -35,6 +36,7 @@ public class UsuarioController {
         usuarios=new ArrayList<>();
         cadena="Hola Mundo... <String>";
         System.out.println("Objecto creado");
+        date=new Date();
     }
     
     @PreDestroy
@@ -67,6 +69,14 @@ public class UsuarioController {
 
     public void setUsuarios(List<UsuarioModel> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
     
     
