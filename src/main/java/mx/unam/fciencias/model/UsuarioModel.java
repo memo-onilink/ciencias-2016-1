@@ -7,11 +7,14 @@ package mx.unam.fciencias.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -29,7 +32,7 @@ public class UsuarioModel implements Serializable{
     private int id;
     
     @NotNull
-    @Column(name = "USUARIO",columnDefinition = "VARCHAR(50)")
+    @Column(name = "USUARIO")
     private String usuario;
     
     @NotNull
@@ -40,8 +43,9 @@ public class UsuarioModel implements Serializable{
     @Column(name = "correo",columnDefinition = "VARCHAR(100)")
     private String correo;
     
-    @Transient
+    @ManyToMany(cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
     private List<LibroModel> libros;
+    
     @Transient
     private Facultad facultad;
 

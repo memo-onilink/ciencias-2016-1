@@ -19,6 +19,11 @@ and open the template in the editor.
                         <h:panelGrid>
                             Usuario:#{_usuario.usuario}<br/>
                             Correo#{_usuario.correo}<br/>
+                            Libros:<ul>
+                            <ui:repeat value="#{_usuario.libros}" var="_libro">
+                                <li>#{_libro.titulo}</li>
+                            </ui:repeat>
+                            </ul>
                             <p:graphicImage name="unam.png" width="50" library="img"/>
                         </h:panelGrid>
                     </p:dataGrid>

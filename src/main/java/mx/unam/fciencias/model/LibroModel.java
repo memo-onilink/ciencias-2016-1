@@ -5,18 +5,29 @@
  */
 package mx.unam.fciencias.model;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
  * @author Memo
  */
-public class LibroModel {
-    
+@Entity
+@Table(name="LIBRO")
+public class LibroModel implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String titulo;
     private String isbn;
     private String edicion;
+    @Transient
     private List<Autor> autor;
 
     public String getTitulo() {
