@@ -5,19 +5,44 @@
  */
 package mx.unam.fciencias.model;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Memo
  */
-public class UsuarioModel {
+@Entity
+@Table(name="USUARIO")
+public class UsuarioModel implements Serializable{
+        
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     
-    private Integer id;
+    @NotNull
+    @Column(name = "USUARIO",columnDefinition = "VARCHAR(50)")
     private String usuario;
+    
+    @NotNull
+    @Column(name = "PASSWORD",columnDefinition = "VARCHAR(15)")
     private String password;
+    
+    @NotNull
+    @Column(name = "correo",columnDefinition = "VARCHAR(100)")
     private String correo;
+    
+    @Transient
     private List<LibroModel> libros;
+    @Transient
     private Facultad facultad;
 
     public String getUsuario() {

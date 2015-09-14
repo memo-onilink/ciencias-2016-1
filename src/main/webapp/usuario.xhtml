@@ -16,7 +16,15 @@ and open the template in the editor.
            <br/>
            <br/>
            <h:form>
-               
+               <p:growl id="growl" globalOnly="true"/>
+               Usuario:<p:inputText value="#{usuarioController.usuario.usuario}" /><br/>
+               Password:<p:password value="#{usuarioController.usuario.password}" /><br/>
+               Correo<p:inputText value="#{usuarioController.usuario.correo}" /><br/>
+               <p:commandButton value="Guardar Usuario" 
+                                ajax="false"
+                                action="index"
+                                actionListener="#{usuarioController.guardaUsuario()}"
+                                />
            </h:form>
      </ui:define>
   </ui:composition>

@@ -15,6 +15,13 @@ and open the template in the editor.
      <ui:define name="content" >
                     <br/>
                     <br/>
+                    <p:dataGrid value="#{usuarioController.usuarios}" var="_usuario">
+                        <h:panelGrid>
+                            Usuario:#{_usuario.usuario}<br/>
+                            Correo#{_usuario.correo}<br/>
+                            <p:graphicImage name="unam.png" width="50" library="img"/>
+                        </h:panelGrid>
+                    </p:dataGrid>
      </ui:define>
   </ui:composition>
 </html>
