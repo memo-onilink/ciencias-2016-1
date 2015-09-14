@@ -11,23 +11,20 @@
     </application>
 
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-action>index</from-action>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
         <navigation-case>
             <from-action>usuario</from-action>
             <to-view-id>usuario.xhtml</to-view-id>
-            
-        </navigation-case>
-        <navigation-case>
-            <from-action>index</from-action>
-            <to-view-id>usuario3.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/usuario.xhtml</from-view-id>
         <navigation-case>
-            <from-action>index</from-action>
-            <to-view-id>/index.xhtml</to-view-id>
+            <from-action>libros</from-action>
+            <to-view-id>libros.xhrml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

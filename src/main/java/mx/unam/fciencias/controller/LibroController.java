@@ -14,12 +14,12 @@ import org.springframework.stereotype.Controller;
  *
  * @author Memo
  */
-@Controller("usuarioController")
+@Controller("libroController")
 @Scope("session")
-public class UsuarioController implements Serializable{    
-
+public class LibroController implements Serializable{
+    
     @PostConstruct
     public void init(){
     }
-
+    
 }

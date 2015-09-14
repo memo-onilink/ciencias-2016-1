@@ -16,19 +16,21 @@
 
         <div id="top">
             <ui:insert name="top">
-                <ui:include src="usuario.xhtml"/>
+                <ui:include src="header.xhtml"/>
             </ui:insert>
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+                <ui:insert name="left">
+                    <ui:include src="left.xhtml"/>
+                </ui:insert>
             </div>
             <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>
             </div>
         </div>
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">Hecho en México, todos los derechos reservados 2011-2013. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica. De otra forma requiere permiso previo por escrito de la Institución.</ui:insert>
         </div>
 
     </h:body>
