@@ -1,0 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mx.unam.fciencias.repository;
+
+import java.io.Serializable;
+import java.util.List;
+import mx.unam.fciencias.model.LibroModel;
+import org.springframework.data.repository.CrudRepository;
+
+/**
+ *
+ * @author Memo
+ */
+public interface LibroRepository extends CrudRepository<LibroModel, Integer>{
+    
+    
+    @Override
+    List<LibroModel> findAll();
+    
+}

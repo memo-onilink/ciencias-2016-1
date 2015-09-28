@@ -6,9 +6,12 @@
 package mx.unam.fciencias.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import mx.unam.fciencias.model.LibroModel;
 import mx.unam.fciencias.model.UsuarioModel;
+import mx.unam.fciencias.repository.LibroRepository;
 import mx.unam.fciencias.repository.UsuarioRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -24,19 +27,37 @@ public class UsuarioController implements Serializable{
     
     private UsuarioModel usuario;
     private List<UsuarioModel> usuarios;
+    private List<LibroModel> libros;
     
     @Autowired
     private UsuarioRespository usuarioRespository;
+    
+    @Autowired
+    private LibroRepository libroRepository;
 
     @PostConstruct
     public void init(){
-        usuarios=usuarioRespository.findAll();
+        usuarios=usuarioRespository.findAll();       
+        libros=libroRepository.findAll();
         usuario=new UsuarioModel();
+         usuario.setLibros(new ArrayList<LibroModel>());
+    }
+
+    public List<LibroModel> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<LibroModel> libros) {
+        this.libros = libros;
     }
     
     public void guardaUsuario(){
         usuarioRespository.save(usuario);
         init();
+    }
+    
+    public void otroMetodo(){
+        System.out.println("Mensaje");
     }
     
 

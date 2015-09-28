@@ -43,7 +43,8 @@ public class UsuarioModel implements Serializable{
     @Column(name = "correo",columnDefinition = "VARCHAR(100)")
     private String correo;
     
-    @ManyToMany(cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.REMOVE,
+            fetch = FetchType.EAGER)
     private List<LibroModel> libros;
     
     @Transient

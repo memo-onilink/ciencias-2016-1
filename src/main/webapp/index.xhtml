@@ -21,12 +21,15 @@ and open the template in the editor.
                             Correo#{_usuario.correo}<br/>
                             Libros:<ul>
                             <ui:repeat value="#{_usuario.libros}" var="_libro">
-                                <li>#{_libro.titulo}</li>
+                                <li>#{_libro.titulo}-#{_libro.isbn}</li>
                             </ui:repeat>
                             </ul>
                             <p:graphicImage name="unam.png" width="50" library="img"/>
                         </h:panelGrid>
                     </p:dataGrid>
+                    <h:form>
+                        <h:commandLink actionListener="#{usuarioController.otroMetodo()}" value="link"/>
+                    </h:form>
      </ui:define>
   </ui:composition>
 </html>
