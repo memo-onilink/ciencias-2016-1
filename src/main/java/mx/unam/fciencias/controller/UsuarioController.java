@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import mx.unam.fciencias.model.LibroModel;
 import mx.unam.fciencias.model.UsuarioModel;
 import mx.unam.fciencias.repository.LibroRepository;
-import mx.unam.fciencias.repository.UsuarioRespository;
+import mx.unam.fciencias.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class UsuarioController implements Serializable{
     private List<LibroModel> libros;
     
     @Autowired
-    private UsuarioRespository usuarioRespository;
+    private UsuarioRepository usuarioRespository;
     
     @Autowired
     private LibroRepository libroRepository;

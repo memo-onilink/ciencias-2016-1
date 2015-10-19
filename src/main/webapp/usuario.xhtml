@@ -27,6 +27,11 @@ and open the template in the editor.
                         </ui:repeat>
                     </ul>
                <br/>
+               <p:selectOneMenu value="#{usuarioController.usuario.rol}"  >
+                   <f:selectItem  itemValue="USER"  itemLabel="USER" />
+                   <f:selectItem  itemValue="ADMIN" itemLabel="ADMIN"  />
+                   
+               </p:selectOneMenu>
                <p:commandButton value="Guardar Usuario" 
                                 ajax="false"
                                 action="index"

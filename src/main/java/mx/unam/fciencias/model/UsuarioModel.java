@@ -43,6 +43,10 @@ public class UsuarioModel implements Serializable{
     @Column(name = "correo",columnDefinition = "VARCHAR(100)")
     private String correo;
     
+    @NotNull
+    @Column(name = "rol",columnDefinition = "VARCHAR(10)")
+    private String rol;
+    
     @ManyToMany(cascade = CascadeType.REMOVE,
             fetch = FetchType.EAGER)
     private List<LibroModel> libros;
@@ -97,4 +101,14 @@ public class UsuarioModel implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    
+    
 }

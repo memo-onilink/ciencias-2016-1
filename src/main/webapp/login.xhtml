@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+  <ui:composition template="/resources/templates/plantilla.xhtml"  >
+     <ui:define name="content" >
+                   
+            <form action="#{facesContext.externalContext.requestContextPath}/j_spring_security_check" method="POST">
+                <h:panelGrid columns="2" >
+                    Usuario:<input type="text" name="j_username"/>
+                    <br/>
+                    Password:<input type="password" name="j_password"/>
+                     <br/>
+                    <input name="submit" type="submit" value="Login"/>
+                    <h:outputLabel rendered="#{param['mensaje'] ne null}" 
+                                value="#{param['mensaje']}" 
+                                />
+                </h:panelGrid>   
+            </form>
+                    
+     </ui:define>
+  </ui:composition>
+</html>

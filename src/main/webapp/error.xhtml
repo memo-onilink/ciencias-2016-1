@@ -13,11 +13,13 @@ and open the template in the editor.
       >
   <ui:composition template="/resources/templates/plantilla.xhtml"  >
      <ui:define name="content" >
+                   Error
+                   <br/>
+                   <p:graphicImage library="img" name="error.jpg"/>
                     <br/>
-                    <br/>
-           <h:form>
-               Vista de alta de libros
-           </h:form>
+                   <h:outputLabel rendered="#{param['mensaje'] ne null}" 
+                                   value="#{param['mensaje']}" 
+                                   class="ui-messages-error ui-corner-all"   />
      </ui:define>
   </ui:composition>
 </html>

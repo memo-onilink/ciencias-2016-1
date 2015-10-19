@@ -15,11 +15,19 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:form>   
-            <h:panelGrid columns="5">
+            <h:panelGrid columns="6">
                 <p:commandLink action="index">
                     <h:graphicImage library="img" name="unam.png" width="100"/>
                 </p:commandLink>
                 <h:outputText value="Prestamo de Libros"></h:outputText>
+                <p:separator />
+                 <p:separator />
+                <p:outputLabel value="Usuario:#{loginController.currentUser}"/>
+                
+                <h:panelGrid rendered="#{loginController.currentUser ne 'anonymousUser'}" >
+                    <a href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout" >Cerrar sesion</a>
+                </h:panelGrid>
+               
             </h:panelGrid>
         </h:form>
     </h:body>
