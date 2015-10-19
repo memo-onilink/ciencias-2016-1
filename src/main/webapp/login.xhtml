@@ -21,9 +21,16 @@ and open the template in the editor.
                     Password:<input type="password" name="j_password"/>
                      <br/>
                     <input name="submit" type="submit" value="Login"/>
-                    <h:outputLabel rendered="#{param['mensaje'] ne null}" 
+                    
+                    <p:dialog widgetVar="dialog" rendered="#{param['popup'] eq 'true'}">
+                        <h:outputLabel rendered="#{param['mensaje'] ne null}" 
                                 value="#{param['mensaje']}" 
                                 />
+                        <script>
+                            if('#{param['popup']}'=='true')
+                                PF('dialog').show();
+                        </script>
+                    </p:dialog>
                 </h:panelGrid>   
             </form>
                     

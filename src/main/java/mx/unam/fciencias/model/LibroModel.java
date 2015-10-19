@@ -11,8 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import sun.misc.BASE64Encoder;
 
 /**
  *
@@ -29,6 +31,9 @@ public class LibroModel implements Serializable{
     private String edicion;
     @Transient
     private List<Autor> autor;
+    
+    @Lob
+    private byte[] archivo;
 
     public String getTitulo() {
         return titulo;
@@ -67,5 +72,22 @@ public class LibroModel implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
-    }  
+    } 
+
+    public byte[] getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(byte[] archivo) {
+        this.archivo = archivo;
+    }
+    public String getImagen(){
+        if(this.archivo!=null && this.archivo.length>0){
+            BASE64Encoder b64=new BASE64Encoder();
+                return  b64.encode(archivo).toString();
+        }else{
+            return null;
+        }
+    }
+    
 }

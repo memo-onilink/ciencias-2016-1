@@ -15,9 +15,21 @@ and open the template in the editor.
      <ui:define name="content" >
                     <br/>
                     <br/>
-           <h:form>
-               Vista de alta de libros
-           </h:form>
+          
+                    
+              <h:form>
+                  <p:fileUpload fileUploadListener="#{libroController.handleFileUpload}" 
+                                mode="advanced" 
+                                dragDropSupport="true"
+                              multiple="true" update="messages" 
+                              sizeLimit="10000000" fileLimit="10"  />
+
+                <p:growl id="messages" showDetail="true" />
+                
+                <p:captcha label="Captcha" />
+                <p:commandButton value="Check"  ajax="false" icon="ui-icon-check"/>
+            </h:form>
+                    
      </ui:define>
   </ui:composition>
 </html>

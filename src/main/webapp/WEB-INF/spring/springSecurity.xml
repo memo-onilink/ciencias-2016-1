@@ -13,6 +13,9 @@
 		
                 <security:intercept-url pattern="/usuario.xhtml" 
                                         access="hasRole('ADMIN')"  />
+                <security:intercept-url pattern="/libros.xhtml" 
+                                        access="hasAnyRole('USER','ADMIN')" />
+                
                 
                 <security:access-denied-handler 
                     error-page="/error.xhtml?mensaje=Acceso Denegado" />
@@ -20,7 +23,7 @@
                 <security:logout invalidate-session="true"/> 
                 <security:form-login login-page="/login.xhtml" 
                                      default-target-url="/index.xhtml"
-                                     authentication-failure-url="/login.xhtml?mensaje=Credenciales invalidas" /> 
+                                     authentication-failure-url="/login.xhtml?mensaje=Credenciales invalidas&amp;popup=true" /> 
                 <security:session-management> 
                     <security:concurrency-control max-sessions="1" expired-url="/login.xhtml?faces-redirect=true"/>        
                 </security:session-management>
