@@ -26,9 +26,27 @@ and open the template in the editor.
 
                 <p:growl id="messages" showDetail="true" />
                 
-                <p:captcha label="Captcha" />
+                
                 <p:commandButton value="Check"  ajax="false" icon="ui-icon-check"/>
             </h:form>
+                    
+                    
+                    <h:form>
+                        <h:outputLabel value="busqueda" />
+                        <p:inputText value="#{usuarioController.busqueda}"/>
+                        <p:commandButton actionListener="#{usuarioController.busquedaLibros(usuarioController.busqueda)}"  
+                                         value="buscar"
+                                         update="@form"
+                                         />
+                        <br/>
+                        <p:dataTable value="#{usuarioController.libros}" var="_libro">
+                            <p:column>
+                                <h:graphicImage width="50" value="data:image;base64,#{_libro.imagen}" />
+                                 #{_libro.titulo}-#{_libro.isbn}
+                            </p:column>
+                        </p:dataTable>
+                        
+                    </h:form>
                     
      </ui:define>
   </ui:composition>
