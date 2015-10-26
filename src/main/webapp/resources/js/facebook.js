@@ -5,14 +5,11 @@
  */
 
 
-var irUrl=function(url){
-    window.location.href=url;
-};
  window.fbAsyncInit = function() {
     FB.init({
       appId      : '679214162183752',
       xfbml      : true,
-      version    : 'v2.3'
+      version    : 'v2.4'
     });
   };
 
@@ -25,9 +22,10 @@ var irUrl=function(url){
    }(document, 'script', 'facebook-jssdk'));
      
 function publicaMensaje(message){
-    FB.login(function(){
-    FB.api('/me/feed', 'post', 
-            {message: message});
-        }, {scope: 'publish_actions'}
-                );
+    window.resultFB= FB.login(
+        function(){
+            FB.api('/me/feed', 'post',  {message: message});
+            },
+            {scope: 'publish_actions'}
+    );
 }
