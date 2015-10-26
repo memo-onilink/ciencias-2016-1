@@ -5,6 +5,16 @@
 	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	 version="3.1">
     
+      <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6Ld7pMESAAAAAHd1VihJkqPUXAJVwU3Cghc8fzrq</param-value>
+    </context-param>
+   
+    <context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6Ld7pMESAAAAAMhr5WSk5bcRrff8Y08NtDi8Buoq</param-value>
+    </context-param>
+    
     <servlet>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <servlet-name>Faces</servlet-name>

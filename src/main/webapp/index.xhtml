@@ -30,6 +30,19 @@ and open the template in the editor.
                     <h:form>
                         <h:commandLink actionListener="#{usuarioController.otroMetodo()}" value="link"/>
                     </h:form>
+                    <h:form>
+                        <p:messages showDetail="true" />
+                        <p:editor widgetVar="text" ></p:editor>
+                         <p:captcha label="Captcha" />
+                         
+                        <p:commandButton value="publicar" 
+                                         update="@form"
+                                          actionListener="#{libroController.metodo()}"
+                                         onsuccess="publicaMensaje(PF('text').jqInput[0].value)"
+                                         />
+                    </h:form>
+                   <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+                   <div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5"></div>
      </ui:define>
   </ui:composition>
 </html>

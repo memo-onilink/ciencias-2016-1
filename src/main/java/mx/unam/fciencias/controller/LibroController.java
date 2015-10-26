@@ -42,4 +42,8 @@ public class LibroController implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
+    public void metodo(){
+        System.out.println("metodo libros");
+    }
+    
 }
