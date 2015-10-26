@@ -7,9 +7,9 @@
 
  window.fbAsyncInit = function() {
     FB.init({
-      appId      : '679214162183752',
+      appId      : '956709421067312',
       xfbml      : true,
-      version    : 'v2.4'
+      version    : 'v2.5'
     });
   };
 
@@ -22,7 +22,7 @@
    }(document, 'script', 'facebook-jssdk'));
      
 function publicaMensaje(message){
-    window.resultFB= FB.login(
+     FB.login(
         function(){
             FB.api('/me/feed', 'post',  {message: message});
             },
